@@ -1,0 +1,25 @@
+Dev Notes: Sistema de anotações simples
+
+O que o projeto precisa fazer?
+
+- Listar as anotações
+- Inserir as anotações
+- Pegar informações de UMA anotação
+- Atualizar uma anotação
+- Deletar uma anotação
+
+Qual a estrutura do projeto?
+
+- local para armazenar as anotações
+- id para identificar cada anotação
+- title 
+- body
+
+
+Quais os endpoints? (metodo)/url/(parametros)
+
+- (GET)/api/notes
+- (GET)/api/note/123
+- (POST)/api/note/(title, body)
+- (PUT)/api/note/123
+- (DELETE)/api/note/123
