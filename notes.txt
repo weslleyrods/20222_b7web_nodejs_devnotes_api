@@ -15,11 +15,10 @@ Qual a estrutura do projeto?
 - title 
 - body
 
-
-Quais os endpoints? (metodo)/url/(parametros)
+Quais os endpoints? (METODO)/url/(parametros)
 
 - (GET)/api/notes
 - (GET)/api/note/123
 - (POST)/api/note/(title, body)
-- (PUT)/api/note/123
+- (PUT)/api/note/123 (title, body)
 - (DELETE)/api/note/123
