@@ -5,11 +5,11 @@ module.exports = {
         res.json({pong: true});
     },
     all: async (req, res)=>{
-        let json = {err:'', res:[]};
+        let json = {err:'', result:[]};
         let notes = await noteService.getAll();
         
         for(let i in notes){
-            json.res.push({
+            json.result.push({
                 id: notes[i].id,
                 title: notes[i].title
             });
@@ -17,16 +17,24 @@ module.exports = {
 
         res.json(json)
     },
-    one: ()=>{
+    one: async(req, res)=>{
+        let json = {err: '', result:{}}
+        let id = req.params.id;
+        let note = await noteService.findById(id);
+
+        if(note){
+            json.result = note;
+        }
+
+        res.json(json);
+    },
+    new: async()=>{
 
     },
-    new: ()=>{
+    edit: async()=>{
 
     },
-    edit: ()=>{
-
-    },
-    delete: ()=>{
+    delete: async()=>{
 
     }
 };

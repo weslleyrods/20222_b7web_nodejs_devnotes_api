@@ -12,9 +12,22 @@ module.exports = {
                     reject(err); 
                     return;
                 }
-                resolve(res);
+                (resolve);
             });
         });
+    }, 
+    findById: (id)=>{
+        return new Promise((resolve, reject)=>{
+            db.query(`SELECT * FROM notes WHERE id = ${id}`, (err, res)=>{
+                if(err){
+                    reject(err); 
+                    return;
+                }
+                resolve(res);  
+            })
+        })
     }
+
+    
 
 };
