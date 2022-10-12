@@ -1,4 +1,4 @@
-const nodeService = require('../services/nodeService');
+const nodeService = require('../services/noteService');
 
 module.exports = {
     ping: (req, res)=>{
