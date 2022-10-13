@@ -26,8 +26,18 @@ module.exports = {
                 resolve(res);  
             })
         })
+    },
+    add: (title, body)=>{
+        return new Promise((resolve, reject)=>{
+            db.query('INSERT INTO notes (title, body) VALUES (?, ?)', [title, body], 
+                (err, result)=>{
+                    if(err){
+                        reject(err);
+                        return;
+                    }
+                //console.log(result)
+                resolve(result.insertId);
+            })
+        })
     }
-
-    
-
 };

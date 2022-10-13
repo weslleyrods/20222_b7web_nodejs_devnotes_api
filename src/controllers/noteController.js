@@ -28,7 +28,24 @@ module.exports = {
 
         res.json(json);
     },
-    new: async()=>{
+    new: async(req, res)=>{
+        let json = {err:'', result:{}}
+
+        let title = req.body.title;
+        let body = req.body.body;
+
+        if(title && body){
+            let noteId = await noteService.add(title, body);
+
+            json.result ={
+                id: noteId,
+                title,
+                body
+            };
+        }else{
+            json.err ='Campos não enviados';
+        }
+        res.json(json)
 
     },
     edit: async()=>{
