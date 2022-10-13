@@ -12,7 +12,7 @@ module.exports = {
                     reject(err); 
                     return;
                 }
-                (resolve);
+                resolve(res);
             });
         });
     }, 
@@ -37,6 +37,31 @@ module.exports = {
                     }
                 //console.log(result)
                 resolve(result.insertId);
+            })
+        })
+    },
+    update:(id, title, body)=>{
+        return new Promise((resolve, reject)=>{
+            db.query('UPDATE notes SET title = ?, body = ? WHERE id = ?',[title, body, id],
+                (err, result)=>{
+                    if(err){
+                        reject(err);
+                        return;
+                    }
+                    resolve(result)
+                }
+            )
+        })
+    },
+    delete: (id)=>{
+        return new Promise((resolve, reject)=>{
+            db.query('DELETE FROM notes WHERE id = ?',[id],
+            (err, result)=>{
+                if(err){
+                    reject(err);
+                    return
+                }
+                resolve(result)
             })
         })
     }

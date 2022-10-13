@@ -48,10 +48,28 @@ module.exports = {
         res.json(json)
 
     },
-    edit: async()=>{
+    edit: async(req, res)=>{
+        let json = {err:'', result:{}}
 
+        let id = req.params.id
+        let title = req.body.title
+        let body = req.body.body
+
+        if(id && title && body){
+            await noteService.update(id, title, body);
+            json.result={
+                id,
+                title,
+                body
+            }
+        }
     },
-    delete: async()=>{
+    delete: async(req, res)=>{
+
+        let json = {err:'', result:{}}
+
+        await noteService.delete(req.params.id)
+        res.json(json)
 
     }
 };
