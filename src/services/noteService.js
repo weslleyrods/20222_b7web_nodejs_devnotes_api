@@ -12,7 +12,7 @@ module.exports = {
                     reject(err); 
                     return;
                 }
-                resolve(res);
+                resolve(res); 
             });
         });
     }, 
